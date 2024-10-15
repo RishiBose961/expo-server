@@ -17,6 +17,11 @@ app.use(express.json()); //pass incoming json data from the user
 app.use("/", router);
 //!error handler
 app.use(errorHandler);
+
+app.get('/',(req, res) => {
+  res.send('server is working')
+})
+
 //! Start the server
-const PORT =  8000;
-app.listen(PORT, console.log(`Server is up and running ${PORT}`));
+const port =   process.env.PORT || 8000;
+app.listen(port, console.log(`Server is up and running ${port}`));
