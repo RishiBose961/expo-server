@@ -2,10 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = require("./routes/users");
 const errorHandler = require("./middlewares/errorHandler");
+require("dotenv").config();
+
 const app = express();
 //! Connect to mongodb
 mongoose
-  .connect("mongodb://localhost:27017/auth-api")
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("Db connected successfully"))
   .catch((e) => console.log(e));
 
