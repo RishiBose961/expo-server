@@ -13,6 +13,7 @@ mongoose
 
 //! Middlewares
 app.use(express.json()); //pass incoming json data from the user
+express.urlencoded({extended : true});
 //!Routes
 app.use("/", router);
 //!error handler
@@ -23,5 +24,7 @@ app.get('/',(req, res) => {
 })
 
 //! Start the server
-const port =   process.env.PORT || 8000;
-app.listen(port, console.log(`Server is up and running ${port}`));
+const port = process.env.PORT || 8000;
+app.listen(port,()=>{
+    console.log("SERVER is Active");
+})
